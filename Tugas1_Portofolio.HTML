@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Portofolio Saya</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+        nav {
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #00bfff;
+            font-size: 18px;
+            padding: 8px 15px;
+            transition: background-color 0.3s;
+        }
+        nav ul li a:hover {
+            background-color: #00bfff;
+            color: #fff;
+            border-radius: 5px;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+        .text-section {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .profile-picture {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #00bfff;
+        }
+        h1 {
+            color: #00bfff;
+        }
+        h2 {
+            color: #000;
+        }   
+        h3 {
+            color: #555; 
+            font-weight: bold;
+            font-style: italic; 
+            font-size: 17px; 
+            margin: 10px 0; 
+        }
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #555;
+        }
+        .more-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #00bfff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .more-btn:hover {
+            background-color: #008fcc;
+        }
+        footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+        .about-container {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .about-picture {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border: 4px solid #00bfff;
+            margin-right: 20px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .identity-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .identity-list li {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .identity-list li strong {
+            color: #00bfff;
+        }
+        .skills-section {
+            margin-top: 20px;
+        }
+        .skills-section h3 {
+            margin-bottom: 10px;
+        }
+        .skill-bar {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .skill-progress {
+            height: 20px;
+            border-radius: 5px;
+            text-align: center;
+            color: #fff;
+        }
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+        .skills-section li strong {
+            color: #00bfff;
+        }
+        .education-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .education-picture {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        .experience-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .experience-picture {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+        }
+        @media (max-width: 768px) {
+            .container, .about-container, .education-container, .experience-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-picture,.education-picture,.experience-picture {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+
+        .portfolio-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Memberi jarak antara item portofolio */
+}
+
+.portfolio-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 20px; /* Memberi jarak antara gambar dan teks */
+}
+
+.portfolio-item div {
+    flex: 1;
+}
+
+.more-btn {
+    margin-top: 10px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.contact-container a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.contact-container a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.contact-container a:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="home">
+    <div class="container">
+        <div class="text-section">
+            <h1>Hai Guys, Selamat Datang!</h1>
+            <h2>Namaku Gede Victor Danadyaksa Udayana</h2>
+            <h3>Mahasiswa Sistem Informasi | Penggemar Teknologi, Hiking, Fitness, dan Musik</h3>
+            <p>Saya merupakan seorang mahasiswa dari Program Studi Sistem Informasi, Universitas Pendidikan Ganesha. Saya juga menggemari hiking, fitness, beladiri, dan musik, serta sangat tertarik pada dunia teknologi.</p>
+            <a href="#about" class="more-btn">More About Me</a>
+        </div>
+        <img src="foto.saya.jpg" alt="Foto Profil" class="profile-picture">
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+        <img src="foto.saya.jpg" alt="Foto Profil" class="about-picture">
+        <div class="about-text">
+            <p>Saya merupakan mahasiswa Sistem Informasi dengan minat besar di bidang teknologi informasi. Saya juga aktif dalam kegiatan fisik seperti hiking, fitness, dan menikmati musik. Bagi saya, keseimbangan antara akademik dan kesehatan fisik adalah kunci kesuksesan.</p>
+            <ul class="identity-list">
+                <li><strong>Agama:</strong> Hindu</li>
+                <li><strong>Jenis Kelamin:</strong> Laki-laki</li>
+                <li><strong>Umur:</strong> 22 tahun</li>
+                <li><strong>Pekerjaan:</strong> Mahasiswa</li>
+                <li><strong>Negara:</strong> Indonesia</li>
+                <li><strong>Phone:</strong> +62 812-3456-7890</li>
+            </ul>
+            <div class="skills-section">
+                <h3>My Skills</h3>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%; background-color: #4caf50;">Kerja Sama Tim: 90%</div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 98; background-color: #2196F3;">Musik: 98%</div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 80%; background-color: #ff9800;">Endurance: 80%</div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 90%; background-color: #ff5722;">Power: 90%</div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-progress" style="width: 95%; background-color: #9c27b0;">Strength: 95%</div>
+                </div>
+            </div>
+            <div class="button-container">
+                <a href="https://www.linkedin.com/in/gede-victor-danadyaksa-udayana-35b03a335/" target="_blank" class="more-btn">Hire Me</a>
+                <a href="file:///C:/Users/LENOVO/Downloads/VICTOR.pdf" class="more-btn">Download CV</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="education">
+    <h2>Pendidikan</h2>
+    <div class="education-container">
+        <img src="KAMPUS.jpg" alt="Foto Universitas Pendidikan Ganesha" class="education-picture">
+        <div>
+            <h3>Universitas Pendidikan Ganesha</h3>
+            <p>Bachelor of Information Systems (2023 - Sekarang)</p>
+        </div>
+    </div>
+    <div class="education-container">
+        <img src="SMA.jpg" alt="Foto Sekolah SMA" class="education-picture">
+        <div>
+            <h3>SMA Negeri 1 Singaraja</h3>
+            <p>Sekolah Menengah Atas (2020 - 2023)</p>
+        </div>
+    </div>
+    <div class="education-container">
+        <img src="SMP.jpg" alt="Foto Sekolah SMP" class="education-picture">
+        <div>
+            <h3>SMP LAB Undiksha Singaraja</h3>
+            <p>Sekolah Menengah Pertama (2017 - 2020)</p>
+        </div>
+    </div>
+    <div class="education-container">
+        <img src="SD.jpg" alt="Foto Sekolah SD" class="education-picture">
+        <div>
+            <h3>SD Negeri 3 Banjar Jawa</h3>
+            <p>Sekolah Dasar (2011 - 2017)</p>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-container">
+        <img src="TurunBB.jpg" alt="Foto Universitas Pendidikan Ganesha" class="experience-picture">
+        <div>
+            <h3>Turun Berat Badan Sebanyak 10 Kg</h3>
+            <p>pengalaman yang tidak seberapa tapi saya bangga akan hal ini</p>
+        </div>
+    </div>
+    <div class="experience-container">
+        <img src="SUMMIT BALI.jpg" alt="Foto Sekolah SMA" class="experience-picture">
+        <div>
+            <h3>Misi SUMMIT Bali(uncomplete)</h3>
+            <p>mendaki gunung juga salah satu pengalaman berharga saya, dan mengajarkan saya akan banyak hal</p>
+        </div>
+    </div>
+    
+</section>
+
+<section id="portfolio">
+    <h2>Portfolio</h2>
+    <h3>bawah ini adalah beberapa karya dan keahlian yang telah saya miliki.</h3> 
+    
+    <div class="portfolio-container">
+        <div class="portfolio-item">
+            <img src="Personal.jpg" alt="Desain Web" class="experience-picture">
+            <div>
+                <h3>Personal Coaching</h3>
+                <p>beberapa orang agak susah untuk belajar sendiri, saya siap memberi arahan :).</p>
+                <a href="https://wa.me/087863286216" class="more-btn">Hubungi saya</a>
+            </div>
+        </div>
+        
+        <div class="portfolio-item">
+            <img src="Mobile APP.jpg" alt="UI Mobile App" class="experience-picture">
+            <div>
+                <h3>Project Mobile App UI</h3>
+                <p>UI desain untuk aplikasi Olahraga berbasis Mobile.</p>
+                <a href="https://www.figma.com/design/5PKf1qqxwy5BaArly22eRx/GaneshaFit?node-id=0-1&t=PqnuPKnrPd1ZCUCT-1" class="more-btn">Lihat Karya</a>
+            </div>
+        </div>
+        
+        <div class="portfolio-item">
+            <img src="project3.jpg" alt="Video Editing" class="experience-picture">
+            <div>
+                <h3>Project 3: Video Editing</h3>
+                <p>Kompilasi video hiking dan traveling yang telah saya edit.</p>
+                <a href="https://example.com/project3" class="more-btn">Lihat Karya</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contact">
+    <h2>Contact</h2>
+    <p>butuh guide ke gunung? atau mungkin teman olahraga? hubungi saja aku yaa, mari kita berteman</p>
+    <div class="contact-container">
+        <a href="https://www.instagram.com/gd.vicc" target="_blank">
+            <img src="IG.jpg" alt="Instagram">
+        </a>
+        <a href="https://wa.me/087863286216" target="_blank">
+            <img src="WATSAPP.jpg" alt="WhatsApp">
+        </a>
+        <a href="mailto:victor@student.undiksha.ac.id" target="_blank">
+            <img src="GMAIL.jpg" alt="Email">
+        </a>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Gede Victor Danadyaksa Udayana</p>
+</footer>
+
+</body>
+</html>
